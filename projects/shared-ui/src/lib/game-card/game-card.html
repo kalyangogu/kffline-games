@@ -1,0 +1,14 @@
+<div class="card" [ngClass]="color">
+
+  <img 
+    *ngIf="icon" 
+    [src]="icon" 
+    alt="icon" 
+    class="icon"
+  />
+
+  <div class="title">
+    {{ title }}
+  </div>
+
+</div>

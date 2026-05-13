@@ -1,0 +1,78 @@
+<h1>Sudoku 🧩</h1>
+
+<!-- MODE -->
+<div *ngIf="mode === 'none'" class="mode-select">
+  <button (click)="selectMode('easy')">Easy</button>
+  <button (click)="selectMode('medium')">Medium</button>
+  <button (click)="selectMode('hard')">Hard</button>
+</div>
+
+<!-- GAME -->
+<div *ngIf="mode !== 'none'" class="game-container">
+<div *ngIf="!gameWon && !gameOver" >
+  <div class="status">
+    <div>Time: {{ formattedTime }}</div>
+
+    <div *ngIf="maxLives > 0">
+      Lives: {{ lives }}
+    </div>
+
+    <div *ngIf="maxLives === 0">
+      Free Mode ✅
+    </div>
+  </div>
+
+  <!-- BOARD -->
+  <div class="board">
+    <div *ngFor="let row of grid; let y=index; trackBy: trackRow" class="row">
+
+      <input
+        *ngFor="let cell of row; let x=index; trackBy: trackCol"
+        class="cell"
+
+[class.block-right]="(x + 1) % 3 === 0 && x !== 8"
+  [class.block-bottom]="(y + 1) % 3 === 0 && y !== 8"
+
+        (click)="selectCell(y,x)"
+
+        [value]="cell === 0 ? '' : cell"
+        [readonly]="originalGrid[y][x] !== 0"
+
+        [class.selected]="selectedRow === y && selectedCol === x"
+        [class.row-highlight]="selectedRow === y"
+        [class.col-highlight]="selectedCol === x"
+        [class.same-value]="cell === selectedValue && selectedValue !== null"
+
+        [class.invalid]="isInvalid(y,x)"
+
+        maxlength="1"
+        (input)="onInput($event, y, x)"
+        (keydown)="restrictInput($event)"
+      />
+
+    </div>
+  </div>
+
+ </div>
+ 
+ <!-- ✅ WIN SCREEN (replaces board) -->
+  <div *ngIf="gameWon" class="game-over">
+
+    <h2>🎉 You Win!</h2>
+    <p>Time: {{ formattedTime }}</p>
+
+    <button (click)="restart()">Play Again</button>
+
+  </div>
+
+  <!-- LOSE -->
+  <div *ngIf="gameOver && !gameWon" class="game-over">
+    <h2>Game Over 💀</h2>
+    <p>Time: {{ formattedTime }}</p>
+    <button (click)="restart()">Try Again</button>
+  </div>
+
+
+  <button class="mode-btn" (click)="restart()">Change Difficulty</button>
+
+</div>

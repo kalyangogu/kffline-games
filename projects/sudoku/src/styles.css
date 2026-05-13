@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files *//* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #e0e0e0, #ffffff);
+  color: rgb(0, 0, 0);
+}
+
+.test-theme {
+  background-color: var(--k-blue);
+  color: var(--k-yellow);
+  padding: 16px;
+  border: 2px solid var(--k-red);
+}

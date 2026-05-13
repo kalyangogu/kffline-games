@@ -1,0 +1,11 @@
+:root {
+  --k-red: #e53935;
+  --k-green: #43a047;
+  --k-blue: #1e88e5;
+  --k-yellow: #fdd835;
+
+  --k-bg-dark: #121212;
+  --k-bg-light: #f5f5f5;
+  --k-text-dark: #212121;
+  --k-text-light: #ffffff;
+}

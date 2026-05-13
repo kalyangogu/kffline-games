@@ -1,0 +1,75 @@
+
+.card {
+  padding: 30px 20px;
+  border-radius: 16px;
+  cursor: pointer;
+
+  text-align: center;
+
+  transition: all 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Hover animation */
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Color themes */
+
+.blue {
+  background: var(--k-blue);
+  box-shadow: 0 0 10px var(--k-blue);
+}
+
+.blue:hover {
+  box-shadow: 0 0 20px var(--k-blue), 0 0 40px var(--k-blue);
+}
+
+.green {
+  background: var(--k-green);
+  box-shadow: 0 0 10px var(--k-green);
+}
+
+.green:hover {
+  box-shadow: 0 0 20px var(--k-green), 0 0 40px var(--k-green);
+}
+
+.red {
+  background: var(--k-red);
+}
+
+.yellow {
+  background: var(--k-yellow);
+  color: black;
+}
+
+
+.icon {
+  width: 70px;
+  height: 70px;
+
+  margin-bottom: 12px;
+
+  object-fit: contain;
+
+  transition: transform 0.25s ease;
+}
+
+
+.card:hover .icon {
+  transform: scale(1.15);
+}
+
+
+
+.title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+

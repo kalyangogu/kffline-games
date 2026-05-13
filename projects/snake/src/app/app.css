@@ -1,0 +1,214 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  flex-direction: column;
+
+  background: radial-gradient(circle at top, #1a1a1a, #000000);
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  color: var(--k-blue);
+  text-shadow: 0 0 10px var(--k-blue), 0 0 20px var(--k-blue);
+}
+
+.board {
+  margin-top: 20px;
+  padding: 16px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
+.row {
+  display: flex;
+}
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  background: var(--k-green);
+  color: white;
+
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px var(--k-green), 0 0 20px var(--k-green);
+}
+
+.mode-select {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.mode-select button {
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: var(--k-blue);
+  color: white;
+   transition: all 0.2s ease;
+}
+
+
+.mode-select button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px var(--k-green), 0 0 20px var(--k-green);
+}
+
+
+.status {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--k-yellow);
+}
+
+.mode-btn {
+  display: block;
+  margin: 10px auto;
+  color: black;
+  background: var(--k-yellow);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+.mode-btn:hover {
+  box-shadow: 0 0 10px var(--k-yellow), 0 0 20px var(--k-yellow);
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  background: #111;
+}
+
+/* Snake body */
+.cell.snake {
+  background: var(--k-green);
+  
+  border-radius: 4px;
+
+  box-shadow: 0 0 6px var(--k-green);
+}
+.score {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--k-yellow);
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls button {
+  background: var(--k-green);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.controls button:hover {
+  background: var(--k-yellow);
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid var(--k-red);
+  text-align: center;
+}
+
+
+.game-over h2 {
+  color: var(--k-red);
+  text-shadow: 0 0 10px var(--k-red);
+}
+
+
+.game-over button {
+  background: var(--k-red);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.game-over button:hover {
+  background: var(--k-yellow);
+  color: black;
+}
+
+
+.cell.food {
+  background: var(--k-red);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--k-red);
+}
+
+.cell.head {
+  background: #00ff88;
+  box-shadow: 0 0 12px #00ff88;
+}
+/* Player 1 */
+.cell.snake {
+  background: var(--k-green);
+}
+
+.cell.head {
+  background: #00ff88;
+  box-shadow: 0 0 12px #00ff88;
+}
+
+/* Player 2 */
+.cell.snake2 {
+  background: var(--k-blue);
+  
+  border-radius: 4px;
+
+}
+
+.cell.head2 {
+  background: #00aaff;
+  box-shadow: 0 0 12px #00aaff;
+}

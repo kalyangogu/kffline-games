@@ -1,0 +1,31 @@
+<div class="container">
+
+  <!-- HEADER -->
+  <h1>Kffline Games 🎮</h1>
+<p class="subtitle">Play fun offline games 🎯</p>
+  <!-- GAME GRID -->
+  <div class="game-grid">
+
+    <kff-game-card
+      title="Tic Tac Toe"
+      color="blue"
+      icon="/assets/icons/tic-tac-toe.png"
+      (click)="openGame('tic-tac-toe')">
+    </kff-game-card>
+
+    <kff-game-card
+      title="Snake"
+      color="green"
+      icon="/assets/icons/snake.png"
+      (click)="openGame('snake')">
+    </kff-game-card>
+    <kff-game-card
+      title="Sudoku"
+      color="yellow"
+      icon="/assets/icons/sudoku.png"
+      (click)="openGame('sudoku')">
+    </kff-game-card>
+
+  </div>
+
+</div>

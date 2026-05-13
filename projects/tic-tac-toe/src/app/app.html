@@ -1,0 +1,50 @@
+<h1 class="title">Tic Tac Toe</h1>
+
+<!-- Mode Selection -->
+<div *ngIf="mode() === 'none'" class="mode-select">
+  <button (click)="selectMode('friend')">Play with Friend</button>
+  <button (click)="selectMode('ai')">Play with Computer</button>
+</div>
+
+<div *ngIf="mode() !== 'none'">
+
+  <div class="status">
+    <div *ngIf="winner()"> Winner: {{ winner() }} 🎉 </div>
+    <div *ngIf="isDraw()"> Draw 🤝 </div>
+
+    <div *ngIf="!winner() && !isDraw()">
+      <span *ngIf="mode() === 'friend'">
+        Turn: {{ currentPlayer() }}
+      </span>
+
+      <span *ngIf="mode() === 'ai'">
+        You (X) vs AI (O)
+      </span>
+    </div>
+  </div>
+
+  <div class="board">
+    <div 
+      class="cell"
+      *ngFor="let value of board(); let i = index"
+      (click)="handleClick(i)"
+      [class.win]="winningCells().includes(i)"
+    >
+     <span 
+  class="value" 
+  *ngIf="value"
+  [class.X]="value === 'X'"
+  [class.O]="value === 'O'"
+>
+  {{ value }}
+</span>
+    </div>
+  </div>
+
+  <button class="reset-btn" (click)="reset()">Reset Game</button>
+
+  <button class="mode-btn" (click)="mode.set('none')">
+    Change Mode
+  </button>
+
+</div>

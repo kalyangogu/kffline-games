@@ -1,0 +1,57 @@
+<h1 class="title">Snake Game</h1>
+
+<!-- ✅ MODE SELECTION -->
+<div *ngIf="mode === 'none'" class="mode-select">
+  <button (click)="selectMode('single')">Single Player</button>
+  <button (click)="selectMode('multi')">Multiplayer</button>
+</div>
+
+<!-- ✅ GAME UI -->
+<div *ngIf="mode !== 'none'">
+
+  <!-- STATUS -->
+  <div class="status">
+    <div *ngIf="mode === 'single'">
+      Score: {{ score1 }}
+    </div>
+
+    <div *ngIf="mode === 'multi'">
+      Green: {{ score1 }} | Blue: {{ score2 }}
+    </div>
+  </div>
+
+  <!-- GAME OVER -->
+  <div *ngIf="gameOver" class="game-over">
+    <h2>{{ winner }}</h2>
+    <button (click)="restart()">Restart</button>
+  </div>
+
+  <!-- BOARD -->
+  <div class="board">
+    <div *ngFor="let row of getGrid(); let y = index" class="row">
+      <div 
+        *ngFor="let col of getGrid(); let x = index"
+        class="cell"
+
+        [class.snake]="isSnake(x, y)"
+        [class.head]="isHead(x, y)"
+
+        [class.snake2]="isSnake2(x, y)"
+        [class.head2]="isHead2(x, y)"
+
+        [class.food]="food.x === x && food.y === y">
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <button (click)="togglePause()">
+    {{ isPaused ? 'Resume ▶️' : 'Pause ⏸' }}
+  </button>
+
+  <!-- ✅ CHANGE MODE -->
+  <button class="mode-btn" (click)="mode = 'none'">
+    Change Mode
+  </button>
+
+</div>
